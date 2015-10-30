@@ -1,0 +1,34 @@
+Procedimento para download
+
+Na página de opções da conta, estão listados os mais recentes agentes por plataforma na coluna da direita.   
+
+No menu principal, selecione conta > opções de conta
+
+Faça o download do agente para sua plataforma.
+
+Descompacte newrelic.zip dentro do diretório da sua aplicação. Para Glassfish, descompacte newrelic.zip dentro do diretório do domínio.
+
+unzip newrelic.zip -d /path/to/appserver/
+
+Rodando o instalador
+
+Entre no diretório o qual foi descompactado o newrelic
+
+cd /path/to/appserver/newrelic
+
+Execute:
+java -jar newrelic.jar install
+
+Necesssário inserir a path exata para o arquivo newrelic.jar
+
+# standalone.conf
+#JAVA_OPTS="$JAVA_OPTS -javaagent:/opt/jboss-as-7.0.0.Final/newrelic/newrelic.jar"
+
+# Mundando usuario/grupo do arquivo newrelic.yml
+chown jboss: /opt/newrelic/newrelic.yml
+
+# Restart o servidor Jboss ou Tomcat
+
+Outros tipos de instalação:
+
+https://docs.newrelic.com/docs/servers/new-relic-servers-linux/installation-configuration
